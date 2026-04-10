@@ -1,0 +1,25 @@
+{
+  "tests": [
+    {
+      "name": "Send SMS code",
+      "method": "POST",
+      "path": "/",
+      "body": {"action": "send-code", "phone": "+79001234567"},
+      "expectedStatus": 200
+    },
+    {
+      "name": "Login with wrong password",
+      "method": "POST",
+      "path": "/",
+      "body": {"action": "login", "email": "test@test.com", "password": "wrongpass"},
+      "expectedStatus": 401
+    },
+    {
+      "name": "Register new user",
+      "method": "POST",
+      "path": "/",
+      "body": {"action": "register", "email": "newuser3@test.com", "password": "pass123", "name": "Тест", "role": "customer"},
+      "expectedStatus": 200
+    }
+  ]
+}
