@@ -17,29 +17,29 @@ export function ServicesSection() {
           <h2 className="mb-2 font-sans text-5xl font-light tracking-tight text-foreground md:text-6xl lg:text-7xl">
             Услуги
           </h2>
-          <p className="font-mono text-sm text-foreground/60 md:text-base">/ Наши компетенции</p>
+          <p className="font-mono text-sm text-foreground/60 md:text-base">/ Что мы делаем</p>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 md:gap-x-16 md:gap-y-12 lg:gap-x-24">
           {[
             {
-              title: "Веб-разработка",
-              description: "Создание современных веб-приложений любой сложности",
+              title: "Уборка квартир",
+              description: "Генеральная и поддерживающая уборка. Мойка окон, чистка ковров, санузлы — до блеска",
               direction: "top",
             },
             {
-              title: "UI/UX Дизайн",
-              description: "Проектирование удобных и красивых интерфейсов",
+              title: "Офисный клининг",
+              description: "Ежедневная или разовая уборка офисов и бизнес-центров. Работаем ночью, чтобы не мешать",
               direction: "right",
             },
             {
-              title: "Мобильные приложения",
-              description: "Кроссплатформенная разработка для iOS и Android",
+              title: "Уборка после ремонта",
+              description: "Удаление строительной пыли, остатков краски и мусора. Сдадим помещение в идеальном виде",
               direction: "left",
             },
             {
-              title: "Консалтинг",
-              description: "Техническая экспертиза и стратегическое планирование",
+              title: "Химчистка мебели",
+              description: "Профессиональная чистка диванов, кресел и матрасов. Удаляем пятна и запахи",
               direction: "bottom",
             },
           ].map((service, i) => (
