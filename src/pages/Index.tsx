@@ -182,72 +182,98 @@ export default function Index() {
       >
         <Shader className="h-full w-full">
           <Swirl
-            colorA="#1275d8"
-            colorB="#e19136"
-            speed={0.8}
-            detail={0.8}
-            blend={50}
-            coarseX={40}
-            coarseY={40}
-            mediumX={40}
-            mediumY={40}
-            fineX={40}
-            fineY={40}
+            colorA="#1a3a6e"
+            colorB="#c9a227"
+            speed={0.6}
+            detail={0.7}
+            blend={55}
+            coarseX={35}
+            coarseY={35}
+            mediumX={35}
+            mediumY={35}
+            fineX={35}
+            fineY={35}
           />
           <ChromaFlow
-            baseColor="#0066ff"
-            upColor="#0066ff"
-            downColor="#d1d1d1"
-            leftColor="#e19136"
-            rightColor="#e19136"
-            intensity={0.9}
-            radius={1.8}
-            momentum={25}
+            baseColor="#0d2a5e"
+            upColor="#1a4080"
+            downColor="#0a1a3a"
+            leftColor="#c9a227"
+            rightColor="#d4af37"
+            intensity={0.85}
+            radius={1.6}
+            momentum={20}
             maskType="alpha"
-            opacity={0.97}
+            opacity={0.95}
           />
         </Shader>
         <div className="absolute inset-0 bg-black/20" />
       </div>
 
       <nav
-        className={`fixed left-0 right-0 top-0 z-50 flex items-center justify-between px-6 py-6 transition-opacity duration-700 md:px-12 ${
+        className={`fixed left-0 right-0 top-0 z-50 transition-opacity duration-700 ${
           isLoaded ? "opacity-100" : "opacity-0"
         }`}
       >
-        <button
-          onClick={() => scrollToSection(0)}
-          className="flex items-center gap-2 transition-transform hover:scale-105"
-        >
-          <img
-            src="https://cdn.poehali.dev/projects/bee7d20a-b3b5-4571-a679-1d7d3bf59d45/bucket/9699e7e1-cc27-427f-beab-bf236bf6935c.jpeg"
-            alt="Выберу и уберу"
-            className="h-12 w-12 rounded-full object-cover shadow-md transition-all duration-300 hover:scale-110"
-          />
-        </button>
-
-        <div className="hidden items-center gap-8 md:flex">
-          {["Главная", "Работы", "Услуги", "О нас", "Контакты"].map((item, index) => (
-            <button
-              key={item}
-              onClick={() => scrollToSection(index)}
-              className={`group relative font-sans text-sm font-medium transition-colors ${
-                currentSection === index ? "text-foreground" : "text-foreground/80 hover:text-foreground"
-              }`}
-            >
-              {item}
-              <span
-                className={`absolute -bottom-1 left-0 h-px bg-foreground transition-all duration-300 ${
-                  currentSection === index ? "w-full" : "w-0 group-hover:w-full"
-                }`}
-              />
-            </button>
-          ))}
+        {/* Логотип по центру */}
+        <div className="flex justify-center pt-4">
+          <button
+            onClick={() => scrollToSection(0)}
+            className="transition-transform hover:scale-105"
+          >
+            <img
+              src="https://cdn.poehali.dev/projects/bee7d20a-b3b5-4571-a679-1d7d3bf59d45/bucket/9699e7e1-cc27-427f-beab-bf236bf6935c.jpeg"
+              alt="Выберу и уберу"
+              className="h-20 w-20 rounded-full object-cover shadow-[0_0_24px_rgba(201,162,39,0.4)] ring-2 ring-yellow-500/40 transition-all duration-300 hover:scale-110 hover:shadow-[0_0_32px_rgba(201,162,39,0.6)] md:h-24 md:w-24"
+            />
+          </button>
         </div>
 
-        <MagneticButton variant="secondary" onClick={() => scrollToSection(4)}>
-          Заказать
-        </MagneticButton>
+        {/* Меню навигации */}
+        <div className="flex items-center justify-between px-6 py-3 md:px-12">
+          <div className="hidden items-center gap-8 md:flex">
+            {["Главная", "Работы", "Услуги"].map((item, index) => (
+              <button
+                key={item}
+                onClick={() => scrollToSection(index)}
+                className={`group relative font-sans text-sm font-medium transition-colors ${
+                  currentSection === index ? "text-foreground" : "text-foreground/70 hover:text-foreground"
+                }`}
+              >
+                {item}
+                <span
+                  className={`absolute -bottom-1 left-0 h-px bg-yellow-400/80 transition-all duration-300 ${
+                    currentSection === index ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                />
+              </button>
+            ))}
+          </div>
+
+          <div className="hidden md:block" />
+
+          <div className="hidden items-center gap-8 md:flex">
+            {["О нас", "Контакты"].map((item, index) => (
+              <button
+                key={item}
+                onClick={() => scrollToSection(index + 3)}
+                className={`group relative font-sans text-sm font-medium transition-colors ${
+                  currentSection === index + 3 ? "text-foreground" : "text-foreground/70 hover:text-foreground"
+                }`}
+              >
+                {item}
+                <span
+                  className={`absolute -bottom-1 left-0 h-px bg-yellow-400/80 transition-all duration-300 ${
+                    currentSection === index + 3 ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                />
+              </button>
+            ))}
+            <MagneticButton variant="secondary" onClick={() => scrollToSection(4)}>
+              Заказать
+            </MagneticButton>
+          </div>
+        </div>
       </nav>
 
       <div
@@ -259,7 +285,7 @@ export default function Index() {
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {/* Hero Section */}
-        <section className="flex min-h-screen w-screen shrink-0 flex-col justify-end px-6 pb-16 pt-24 md:px-12 md:pb-24">
+        <section className="flex min-h-screen w-screen shrink-0 flex-col justify-end px-6 pb-16 pt-36 md:px-12 md:pb-24 md:pt-40">
           <div className="max-w-3xl">
             <div className="mb-4 inline-block animate-in fade-in slide-in-from-bottom-4 rounded-full border border-foreground/20 bg-foreground/15 px-4 py-1.5 backdrop-blur-md duration-700">
               <p className="font-mono text-xs text-foreground/90">Профессиональный клининг</p>
